@@ -22,7 +22,13 @@ module.exports = {
     ],
     resolve: {
         extensions: ['.js'],
-        modules: ['lib', 'node_modules']
+        modules: ['lib', 'node_modules'],
+        fallback: {
+            crypto: require.resolve('crypto-browserify'),
+            buffer: require.resolve('buffer/'),
+            os: require.resolve('os-browserify/browser'),
+            stream: require.resolve('stream-browserify'),
+        },
     },
     module: {
         rules: [
